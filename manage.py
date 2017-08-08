@@ -2,8 +2,7 @@ import os, sys
 
 file_item_path= os.path.join(os.path.dirname(__file__),"codeR\Lib\site-packages") 
 sys.path.append(file_item_path)
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))             
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))           
 
 from flask_script import Manager, Server
 from R import app,db

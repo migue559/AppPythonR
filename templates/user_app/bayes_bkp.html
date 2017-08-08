@@ -1,0 +1,92 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                     <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Algorithm Bayes {{usr}}
+                        </h1>
+                        <ol class="breadcrumb">                            
+                            <li class="active">
+                                <i class="fa fa-desktop"></i> Type Scrypt R Twitter
+                            </li>
+                        </ol>
+                </div>                
+                <div class="row">                    
+                        <div class="jumbotron">
+                            <!--<form  method="POST"  action="{{ url_for('bayes')}}">                          -->
+                                <h3>Busca tu Palabra</h3>
+
+
+                                <script type="text/javascript">
+                                  var users_twitts="";
+                                    console.log("test a");
+                                    console.log(users_twitts);
+                                  $(function() {
+                                    var submit_form = function(e) {
+                                      $.getJSON($SCRIPT_ROOT + '/_add_numbers2', {
+                                        word: $('input[name="word"]').val()                            
+                                      }, function(data) {
+                                        $('#result').text(data.result);
+                                        $('input[name=word]').focus().select();
+                                        users_twitts = data.result
+                                        console.log("test b");
+                                        console.log(users_twitts);                                    
+                                      });
+                                      //return false;
+                                    $.ajax({
+                                            type : "POST",
+                                            url : "{{ url_for('prueba') }}",
+                                            data: JSON.stringify(users_twitts, null, '\t'),
+                                            contentType: 'application/json;charset=UTF-8',
+                                            success: function(result) {
+                                                    console.log("buen resultado");
+                                                    console.log(result);
+                                                    }
+                                            });  
+                                    };
+
+                                    $('a#busca').bind('click', submit_form);
+                                    $('input[type=text]').bind('keydown', function(e) {
+                                      if (e.keyCode == 13) {
+                                        submit_form(e);
+                                      }
+                                    });
+                                    $('input[name=word]').focus();
+                                    })
+                                    console.log("test c");
+                                    console.log(users_twitts);     
+
+
+                                </script>
+                                <p>
+                                  <input type="text" size="25" name="word">
+                                <a href=# id="busca"><button class='btn btn-default'>busca palabra</button></a>                       
+                                <!--<p><input type="text" name="a">
+                                <input type="submit" value="Realizar Busqueda" id="busca">
+                                <div class="column">
+                                </div>
+                            </form>-->
+                            <div class="page-header">
+                                <h3>Cuentas referenciadas a tu palabra</h3>
+                            </div>
+                            <div class="form-group">
+                                <label>Radio Buttons</label>
+                                <span id="result">?</span>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="resul.name" id="result" value="option1" checked>Radio 1
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                </div><!-- /.row -->
+            </div><!-- /.row -->
+</div>       <!-- /#page-wrapper -->
+{% endblock %}
+

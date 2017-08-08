@@ -19,18 +19,20 @@ cmd_BHT = [command, BusquedaporHashTag]
 
 
 # check_output will run the command and store to result
-#x_1 = subprocess.check_output(cmd_BHT, universal_newlines=True)
+x_1 = subprocess.check_output(cmd_BHT, universal_newlines=True)
 
 print('#############################################################################')
 print('################  Se ha Generando CSV #####################  Se ha Generando CSV  #######')
 print('#############################################################################')
 
-NaiveBayesTwitter = 'C:/Users/MIGUEL/Documents/Sublime/R/NaiveBayesTwitter.R'
+#NaiveBayesTwitter = 'C:/Users/MIGUEL/Documents/Sublime/R/NaiveBayesTwitter.R'
+NaiveBayesTwitter = 'C:/Users/MIGUEL/Documents/Sublime/python/R/r/scripts/Twitter_Aut_Clas_01.R'
 
 
 cmd_NBT = [command, NaiveBayesTwitter] 
 
-x_2 = subprocess.check_output(cmd_NBT, universal_newlines=True)
+x_2 = subprocess.call(cmd_NBT, Shell=True)
+#x_2 = subprocess.check_output(cmd_NBT, universal_newlines=True)
 
 print('#############################################################################')
 print('################  xxx message xxx #####################  xxx message xxx #######')

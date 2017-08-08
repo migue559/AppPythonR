@@ -6,7 +6,7 @@ flask-wtf  forms
 bcrypt
 Flask-Login
 flask-bootstrap
-
+twitter
 
 
 

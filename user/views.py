@@ -1,21 +1,14 @@
 from R import app,db,lm
 from flask import url_for, redirect, render_template, flash, g, session,request
 #from flask_login import login_user, logout_user, current_user, login_required
-
 from user.forms  import LoginForm,RegisterForm
 from user.models import User
 from mongo import mongo_objects
 import bcrypt
 
-
-
-
-@app.route('/inicio/<usr>/<pwd>')
-def inicio(usr,pwd):
-	if (not usr or not pwd):
-		return "Datos vacios"
-	else:
-		return 'Hello World! usuario registrado %s %s' % (usr,pwd)
+@app.route('/inicio/')
+def inicio():
+		return 'Hello World Vas bien vergas!'
 
 @app.route('/login', methods=('GET','POST'))
 def login():
@@ -38,14 +31,17 @@ def login():
 					session.pop('next')
 					return redirect(next)
 				else:
-					return redirect(url_for('bayes'))
+					return redirect(url_for('index'))
 			else:
 				error="Incorrect password"
 		else:
-			error="user invalid try again!"
-			#return redirect(url_for('login_wrong'))
+			error="user invalid try again!"			
 	return render_template('/user/login.html',form=form, error=error)
 
+@app.route('/logout')
+def logout():
+	session.pop('username')
+	return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['GET','POST'])
@@ -66,14 +62,7 @@ def register():
 		error="Incorrect password / user incorrect"
 	return render_template('/user/register.html',form=form, error=error)
 
-
-
-@app.route('/bayes')
-def bayes():
-	return render_template('/app/bayes.html')
-
 """
-
 @app.route('/list/')
 def posts():
 	return render_template('list.html')

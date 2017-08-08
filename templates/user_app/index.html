@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Selection Algorithm
+                        </h1>
+                        <ol class="breadcrumb">                            
+                            <li class="active">
+                                <i class="fa fa-desktop"></i> Type Scrypt R
+                            </li>
+                        </ol>
+                    
+                </div>                
+                <div class="row">
+                    
+                        <div class="jumbotron">
+                            <h2>Algorithm Arima</h2>
+                            <p>Choro mamalon explicativo del algoritmo</p>                            
+                            <a href="{{ url_for('arima') }}" class="btn btn-primary btn-lg" role="button">Arima &raquo;</a>
+                            <h2>Algorithm Bayes</h2>
+                            <p>Choro mamalon explicativo del algoritmo</p>                            
+                            <a href="{{ url_for('bayes') }}" class="btn btn-primary btn-lg" role="button">Bayes &raquo;</a>
+                        </div>
+                       
+                        
+                    
+                </div><!-- /.row -->
+            </div><!-- /.container fluid -->
+                
+</div>       <!-- /#page-wrapper -->
+{% endblock %}
+
+
+
+
